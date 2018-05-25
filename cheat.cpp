@@ -7,7 +7,7 @@ using namespace std;
 void error();
 template <typename T>
 
-bool WPM(HANDLE handle, const T& data, LPVOID address)						//This is a wrapper template function. Basically, allows for various types of data and less typing. Thanks to @WLAN.
+bool WPM(HANDLE handle, const T& data, LPVOID address)//This is a wrapper template function. Basically, allows for various types of data and less typing. Thanks to @WLAN.
 {
 	return WriteProcessMemory(handle, address, &data, sizeof(T), nullptr);
 }
@@ -74,17 +74,17 @@ void cheat::noRecoil(HANDLE hProcess, int32_t lPlayer)
 	DWORD protection = 0x10;
 	DWORD protectionOld;
 	const int value = 0;
-	VirtualProtectEx(hProcess, (LPVOID)off->m_recoil, sizeof(off->m_recoil), protection, &protectionOld);					//I don't know why this Address had protection and the others didn't. 
-	WPM(hProcess, value, (LPVOID)(off->m_recoil));																			//Maybe because I'm using a static address in m_recoil instead of 
-	VirtualProtect((LPVOID)off->m_recoil, sizeof(off->m_recoil), protectionOld, NULL);										//Calculating it via offsets. 
+	VirtualProtectEx(hProcess, (LPVOID)off->m_recoil, sizeof(off->m_recoil), protection, &protectionOld);//I don't know why this Address had protection and the others didn't. 
+	WPM(hProcess, value, (LPVOID)(off->m_recoil));								//Maybe because I'm using a static address in m_recoil instead of 
+	VirtualProtect((LPVOID)off->m_recoil, sizeof(off->m_recoil), protectionOld, NULL);			//Calculating it via offsets. 
 }
 
 void cheat::rapidFire(cheat* cheatOBJ)
 {
 	const int value = 70;
 	int i;
-	WORD arr[6] = { cheatOBJ->tArifle,cheatOBJ->tCarbine,cheatOBJ->tMgun,cheatOBJ->tShotgun,cheatOBJ->tSniper,cheatOBJ->tPistol };		//Setting the addresses because I prefered a local array instead
-	for (i = 0; i < 6; i++)																												//of a struct. Thanks to @MagicM8
+	WORD arr[6] = { cheatOBJ->tArifle,cheatOBJ->tCarbine,cheatOBJ->tMgun,cheatOBJ->tShotgun,cheatOBJ->tSniper,cheatOBJ->tPistol };//Setting the addresses because I prefered a local array instead
+	for (i = 0; i < 6; i++)														//of a struct. Thanks to @MagicM8
 	{
 		WPM(hProcess, value, (LPVOID)(cheatOBJ->pLayer + arr[i]));
 	}
@@ -94,18 +94,18 @@ void cheat::rapidFire(cheat* cheatOBJ)
 
 void cheat::rapidKnife(cheat* cheatOBJ)
 {
-	const int value = 200;																												//200 is a good value for me to have in Fast Knife. 
-	WPM(hProcess, value, (LPVOID)(cheatOBJ->pLayer + cheatOBJ->KnifeTime));																//Going lower makes the animations weird.
+	const int value = 200;							//200 is a good value for me to have in Fast Knife. 
+	WPM(hProcess, value, (LPVOID)(cheatOBJ->pLayer + cheatOBJ->KnifeTime));	//Going lower makes the animations weird.
 }
 
 void cheat::closehandle()
 {
-	delete off;
-	CloseHandle(hProcess);
+	delete off;  //I'm deleting the object here because this function is only called if the user decides to exit.
+	CloseHandle(hProcess); 
 }
 
 
-void error()												//This function is supposed to give me the last error while I was coding the cheat. I removed it after I finished it. 
+void error()	//This function is supposed to give me the last error while I was coding the cheat. I removed it after I finished it. 
 {																																						
 	cout << "Failed to WPR. " << endl;
 	cout << "Last error: " << GetLastError() << endl;      
