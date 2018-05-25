@@ -1,18 +1,18 @@
-#include <iostream>							// Like I said below, all feedback is appreciated and taken into consideration.
+#include <iostream>		// Like I said below, all feedback is appreciated and taken into consideration.
 #include <cstdlib>
 #include <Windows.h>
 #include <stdio.h>
 #include "cheat.h"
 using namespace std;
-bool fireStatus = false, knifeStatus = false;				//Global Bool functions to control on/off switches on Rapid Fire and Rapid knife cheats. 
-void displayMenu();							//The menu displaying function.  It is located in the toggle.cpp file. 
+bool fireStatus = false, knifeStatus = false;		//Global Bool functions to control on/off switches on Rapid Fire and Rapid knife cheats. 
+void displayMenu();					//The menu displaying function.  It is located in the toggle.cpp file. 
 bool toggleFunction(HANDLE hProcess, int hNumber, int32_t pLayer);
 
-DWORD WINAPI RapidFire(LPVOID cheatOBJ);		//Thread functions. Defined below main.
+DWORD WINAPI RapidFire(LPVOID cheatOBJ);//Thread functions. Defined below main.
 DWORD WINAPI RapidKnife(LPVOID cheatOBJ);
 
 
-cheat* cheatObj = new cheat;		//Global Object, because I gotta use it in Thread Functions below.  I'm not sure if this is a good solution at the problem I had. 
+cheat* cheatObj = new cheat;	//Global Object, because I gotta use it in Thread Functions below.  I'm not sure if this is a good solution at the problem I had. 
 int main()
 {
 	int32_t pLayer;
