@@ -77,9 +77,9 @@ void cheat::noRecoil(HANDLE hProcess, int32_t lPlayer)
 	DWORD protection = 0x10;
 	DWORD protectionOld;
 	const int value = 0;
-	VirtualProtectEx(hProcess, (LPVOID)off->m_recoil, sizeof(off->m_recoil), protection, &protectionOld);			//I don't know why this Address had protection and the others didn't. 
-	WPM(hProcess, value, (LPVOID)(off->m_recoil));										//Maybe because I'm using a static address in m_recoil instead of 
-	VirtualProtect((LPVOID)off->m_recoil, sizeof(off->m_recoil), protectionOld, NULL);					//Calculating it via offsets. 
+	VirtualProtectEx(hProcess, (LPVOID)off->m_recoil, sizeof(off->m_recoil), protection, &protectionOld);	//I don't know why this Address had protection and the others didn't. 
+	WPM(hProcess, value, (LPVOID)(off->m_recoil));								//Maybe because I'm using a static address in m_recoil instead of 
+	VirtualProtect((LPVOID)off->m_recoil, sizeof(off->m_recoil), protectionOld, NULL);			//Calculating it via offsets. 
 	delete off;
 }
 
@@ -98,8 +98,8 @@ void cheat::rapidFire(cheat* cheatOBJ)
 
 void cheat::rapidKnife(cheat* cheatOBJ)
 {
-	const int value = 200;											//200 is a good value for me to have in Fast Knife. 
-	WPM(hProcess, value, (LPVOID)(cheatOBJ->pLayer + cheatOBJ->KnifeTime));					//Going lower makes the animations weird.
+	const int value = 200;								//200 is a good value for me to have in Fast Knife. 
+	WPM(hProcess, value, (LPVOID)(cheatOBJ->pLayer + cheatOBJ->KnifeTime));		//Going lower makes the animations weird.
 }
 
 void cheat::closehandle()
@@ -108,7 +108,7 @@ void cheat::closehandle()
 }
 
 
-void error()												//This function is supposed to give me the last error while I was coding the cheat. I removed it after I finished it. 
+void error()	//This function is supposed to give me the last error while I was coding the cheat. I removed it after I finished it. 
 {																																						
 	cout << "Failed to WPR. " << endl;
 	cout << "Last error: " << GetLastError() << endl;      
