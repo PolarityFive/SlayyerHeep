@@ -17,7 +17,7 @@ bool toggleFunction(HANDLE hProcess, int hNumber, int32_t pLayer)  //This is jus
 	{
 		cheat Health;
 		Health.setHealth(hProcess, pLayer);                      //Normally, I'd use the Handle that is contained inside the cheat class 
-		return(false);											 //but I didn't really want to open and close a million handles.
+		return(false);						 //but I didn't really want to open and close a million handles.
 	}
 	case 2:
 	{
@@ -47,7 +47,7 @@ bool toggleFunction(HANDLE hProcess, int hNumber, int32_t pLayer)  //This is jus
 }
 
 
-void displayMenu()											//If you want to add more features, don't forget to add a message to the menu.  
+void displayMenu()			//If you want to add more features, don't forget to add a message to the menu.  
 {
 	cout << "=============Features=============" << endl;
 	cout << "F5: Infinite Health. (Toggle only)" << endl;
