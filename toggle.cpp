@@ -16,8 +16,8 @@ bool toggleFunction(HANDLE hProcess, int hNumber, int32_t pLayer)  //This is jus
 	case 1:
 	{
 		
-		cToggle.setHealth(hProcess, pLayer);                      //Normally, I'd use the Handle that is contained inside the cheat class 
-		return(false);						 //but I didn't really want to open and close a million handles.
+		cToggle.setHealth(hProcess, pLayer);             //Normally, I'd use the Handle that is contained inside the cheat class 
+		return(false);					 //but I didn't really want to open and close a million handles.
 	}
 	case 2:
 	{
