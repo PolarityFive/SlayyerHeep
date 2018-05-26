@@ -4,7 +4,7 @@
 #include "cheat.h"
 
 
-
+cheat cToggle;
 // I know this file is called toggle and contains both the toggle function and the menu. It's for ease of access when I add another feature. 
 
 using namespace std;
@@ -15,26 +15,26 @@ bool toggleFunction(HANDLE hProcess, int hNumber, int32_t pLayer)  //This is jus
 	{
 	case 1:
 	{
-		cheat Health;
-		Health.setHealth(hProcess, pLayer);                      //Normally, I'd use the Handle that is contained inside the cheat class 
+		
+		cToggle.setHealth(hProcess, pLayer);                      //Normally, I'd use the Handle that is contained inside the cheat class 
 		return(false);						 //but I didn't really want to open and close a million handles.
 	}
 	case 2:
 	{
-		cheat Armor;
-		Armor.setArmor(hProcess, pLayer);
+		
+		cToggle.setArmor(hProcess, pLayer);
 		return(false);
 	}
 	case 3:
 	{
-		cheat Ammo;
-		Ammo.setAmmo(hProcess, pLayer);
+		
+		cToggle.setAmmo(hProcess, pLayer);
 		return(false);
 	}
 	case 4:
 	{
-		cheat Recoil;
-		Recoil.noRecoil(hProcess, pLayer);
+		
+		cToggle.noRecoil(hProcess, pLayer);
 		return(false);
 	}
 	case 0:
