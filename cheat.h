@@ -38,9 +38,6 @@ public:
 	HANDLE GetSetHandle();
 };
 
-//This comment serves as a reminder of shame.
-//I used two different classes for Offsets and functions before upgrading to SlayerHeap v1.2 because brain is completely spaghetti. *Shruggie*
-
 
 
 //If you can't find an offset on this file, that means I don't have/use it. If an offset is incorrect, well, shit happens. I didn't get these myself. 
