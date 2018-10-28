@@ -1,4 +1,4 @@
-# SlayyerHeep
+SlayyerHeep
 
 An Assault Cube external cheat. 
 
