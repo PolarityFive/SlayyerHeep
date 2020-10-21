@@ -5,7 +5,7 @@
 
 
 cheat cToggle;
-// I know this file is called toggle and contains both the toggle function and the menu. It's for ease of access when I add another feature. 
+// I know this file is called toggle and contains both the toggle function and the menu.
 
 using namespace std;
 
@@ -16,8 +16,8 @@ bool toggleFunction(HANDLE hProcess, int hNumber, int32_t pLayer)  //This is jus
 	case 1:
 	{
 		
-		cToggle.setHealth(hProcess, pLayer);             //Normally, I'd use the Handle that is contained inside the cheat class 
-		return(false);					 //but I didn't really want to open and close a million handles.
+		cToggle.setHealth(hProcess, pLayer);             
+		return(false);					 
 	}
 	case 2:
 	{
@@ -47,7 +47,7 @@ bool toggleFunction(HANDLE hProcess, int hNumber, int32_t pLayer)  //This is jus
 }
 
 
-void displayMenu()			//If you want to add more features, don't forget to add a message to the menu.  
+void displayMenu()			
 {
 	cout << "=============Features=============" << endl;
 	cout << "F5: Infinite Health. (Toggle only)" << endl;
