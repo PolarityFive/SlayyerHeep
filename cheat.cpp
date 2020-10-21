@@ -13,8 +13,6 @@ bool WPM(HANDLE handle, const T& data, LPVOID address)//This is a wrapper templa
 }
 
 //These functions should be self explanatory. "Cheat" class member functions.
-//If you do not understand why these are defined this way, or how they're called
-//You need to study basic Object Oriented Programming.
 
 
 cheat *off = new cheat; //Object declaration
@@ -83,8 +81,8 @@ void cheat::rapidFire(cheat* cheatOBJ)
 {
 	const int value = 70;
 	int i;
-	WORD arr[6] = { cheatOBJ->tArifle,cheatOBJ->tCarbine,cheatOBJ->tMgun,cheatOBJ->tShotgun,cheatOBJ->tSniper,cheatOBJ->tPistol };//Setting the addresses because I prefered a local array instead
-	for (i = 0; i < 6; i++)														//of a struct. Thanks to @MagicM8
+	WORD arr[6] = { cheatOBJ->tArifle,cheatOBJ->tCarbine,cheatOBJ->tMgun,cheatOBJ->tShotgun,cheatOBJ->tSniper,cheatOBJ->tPistol };
+	for (i = 0; i < 6; i++)														
 	{
 		WPM(hProcess, value, (LPVOID)(cheatOBJ->pLayer + arr[i]));
 	}
@@ -105,7 +103,7 @@ void cheat::closehandle()
 }
 
 
-void error()	//This function is supposed to give me the last error while I was coding the cheat. I removed it after I finished it. 
+void error()
 {																																						
 	cout << "Failed to WPR. " << endl;
 	cout << "Last error: " << GetLastError() << endl;      
