@@ -12,7 +12,7 @@ DWORD WINAPI RapidFire(LPVOID cheatOBJ);//Thread functions. Defined below main.
 DWORD WINAPI RapidKnife(LPVOID cheatOBJ);
 
 
-cheat* cheatObj = new cheat;	//Global Object, because I gotta use it in Thread Functions below.  I'm not sure if this is a good solution at the problem I had. 
+cheat* cheatObj = new cheat;	//Global Object. *Sigh.*
 int main()
 {
 	int32_t pLayer;
